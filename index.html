@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ELDERLY — Caring AI Companion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">ELDERLY</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <span onclick="navSpeak('home')">Home</span>
+      <span onclick="navSpeak('about')">About</span>
+      <span onclick="navSpeak('features')">Features</span>
+      <span onclick="navSpeak('family')">Family</span>
+      <span onclick="navSpeak('faqs')">FAQs</span>
+    </div>
+    <div class="nav-actions">
+      <button class="btn ghost">Login</button>
+      <button class="btn primary">Try for Free</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section class="page active" data-page="home">
+  <div class="hero">
+    <h1>Create a caring voice experience for elders</h1>
+    <p>Calm conversations, memory support, and family reassurance.</p>
+    <div class="orb">
+      <span onclick="talk()">🎤</span>
+    </div>
+    <div class="strip">
+      <div onclick="navSpeak('story')">📖 Stories</div>
+      <div onclick="navSpeak('memory')">🧠 Memory Exercise</div>
+      <div onclick="navSpeak('family')">👨‍👩‍👧 Family</div>
+    </div>
+  </div>
+  <section class="pricing">
+    <h2>Simple Pricing</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Basic</h3>
+        <div class="price">Free</div>
+        <p>Voice companion & stories</p>
+      </div>
+      <div class="price-card">
+        <h3>Care+</h3>
+        <div class="price">$9 / mo</div>
+        <p>Memory & medicine reminders</p>
+      </div>
+      <div class="price-card">
+        <h3>Family Pro</h3>
+        <div class="price">$19 / mo</div>
+        <p>Family dashboard & insights</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ABOUT -->
+<section class="page" data-page="about">
+  <div class="card">
+    <h2>About ELDERLY</h2>
+    <img src="elderlogo.jpeg" alt="Elderly AI Companion" class="about-img">
+    <p>ELDERLY is a voice-first AI companion designed for dignified aging. It provides calm conversations, personalized storytelling, memory exercises, and family engagement features to help elders stay mentally active, socially connected, and reassured.</p>
+    <p>Our mission is to combine AI technology with empathy, creating a safe, supportive, and enjoyable experience for elders worldwide. With ELDERLY, families can ensure their loved ones are cared for in a meaningful, interactive way.</p>
+    <button class="btn ghost" onclick="navSpeak('home')">← Back</button>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="page" data-page="features">
+  <div class="card">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div class="feature-block" onclick="speak('Voice Conversations: Interact naturally using voice without typing, suitable for elders.')">
+        <div class="feature-icon">🎙️</div>
+        <h3>Voice Conversations</h3>
+        <p>Interact naturally using voice without typing, suitable for elders.</p>
+      </div>
+      <div class="feature-block" onclick="speak('AI Stories: Personalized calming stories that engage and entertain the elder.')">
+        <div class="feature-icon">📖</div>
+        <h3>AI Stories</h3>
+        <p>Personalized calming stories that engage and entertain the elder.</p>
+      </div>
+      <div class="feature-block" onclick="speak('Memory Exercises: Gamified tasks to keep the mind sharp and active daily.')">
+        <div class="feature-icon">🧠</div>
+        <h3>Memory Exercises</h3>
+        <p>Gamified tasks to keep the mind sharp and active daily.</p>
+      </div>
+      <div class="feature-block" onclick="speak('Medicine Reminders: Voice notifications to ensure timely medicine adherence.')">
+        <div class="feature-icon">💊</div>
+        <h3>Medicine Reminders</h3>
+        <p>Voice notifications to ensure timely medicine adherence.</p>
+      </div>
+      <div class="feature-block" onclick="speak('Family Dashboard: Track elder’s engagement, stories, exercises, and wellbeing.')">
+        <div class="feature-icon">👨‍👩‍👧</div>
+        <h3>Family Dashboard</h3>
+        <p>Track elder’s engagement, stories, exercises, and wellbeing.</p>
+      </div>
+      <div class="feature-block" onclick="speak('Creative Interaction: Art and color activities for fun cognitive stimulation.')">
+        <div class="feature-icon">🎨</div>
+        <h3>Creative Interaction</h3>
+        <p>Art & color activities for fun cognitive stimulation.</p>
+      </div>
+    </div>
+    <button class="btn ghost" onclick="navSpeak('home')">← Back</button>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="page" data-page="story">
+  <div class="card">
+    <h2>Story Time</h2>
+    <p id="storyText">Press listen to begin.</p>
+    <button class="btn primary" onclick="playStory()">Listen</button>
+    <button class="btn ghost" onclick="stopSpeak()">Next</button>
+    <button class="btn ghost" onclick="stopSpeak()">Stop</button>
+    <button class="btn ghost" onclick="navSpeak('home')">← Back</button>
+  </div>
+</section>
+
+<!-- MEMORY -->
+<section class="page" data-page="memory">
+  <div class="card">
+    <h2>Memory Exercise</h2>
+    <p id="memoryPrompt">Press start when ready.</p>
+    <button class="btn primary" onclick="startMemory()">Start</button>
+     <button class="btn ghost" onclick="stopSpeak()">Next</button>
+    <button class="btn ghost" onclick="stopSpeak()">Stop</button>
+    <button class="btn ghost" onclick="navSpeak('home')">← Back</button>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="page" data-page="family">
+  <div class="card">
+    <h2>Family Dashboard</h2>
+    <p class="timer-instruction">Set Medicine Timer below to notify elder via voice:</p>
+    <div class="family-top">
+      <input id="medName" placeholder="Medicine name">
+      <input id="medTime" type="time">
+      <button class="btn primary" onclick="setMedicine()">Set</button>
+    </div>
+    <div class="family-box">🗣️ Voice interaction summary</div>
+    <div class="family-box">📖 Stories listened</div>
+    <div class="family-box">🧠 Memory engagement</div>
+    <div class="family-box">💊 Medicine adherence</div>
+    <button class="btn ghost" onclick="navSpeak('home')">← Back</button>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="page" data-page="faqs">
+  <div class="card">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>Is ELDERLY elder-friendly?</strong> Yes. Voice-first design with large readable text and calming visuals.</p>
+    <p><strong>Can family track progress?</strong> Yes. Families receive summaries and updates through the dashboard.</p>
+    <p><strong>Does it require internet?</strong> Basic stories & voice features work offline; advanced AI features require connection.</p>
+    <p><strong>Is it secure?</strong> Fully GDPR compliant; data is encrypted and private.</p>
+    <button class="btn ghost" onclick="navSpeak('home')">← Back</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>ELDERLY</h4>
+      <p>AI companion for dignified aging.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <span onclick="navSpeak('home')">Home</span>
+      <span onclick="navSpeak('features')">Features</span>
+      <span onclick="navSpeak('home')">Pricing</span>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <span onclick="navSpeak('about')">About</span>
+      <span>Privacy</span>
+      <span>Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
