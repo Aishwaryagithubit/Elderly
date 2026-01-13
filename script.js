@@ -20,7 +20,7 @@ function openPage(page){
 }
 function navSpeak(page){
     const map = {
-        home:"Welcome to ELDERLY. Choose an activity to begin.",
+        home:"Welcome to ELDERLY. Choose an activity to begin",
         about:"ELDERLY is a voice-first AI companion for dignified aging.",
         features:"Explore the features including voice conversations, stories, memory exercises, and family dashboard.",
         family:"Family dashboard. Set medicine timers and track engagement.",
@@ -168,5 +168,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     initBingo();
     initPaint();
 });
+
 
 
