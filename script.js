@@ -1,3 +1,4 @@
+
 const synth = window.speechSynthesis;
 
 // --- VOICE SPEAK ---
@@ -167,3 +168,4 @@ document.addEventListener("DOMContentLoaded",()=>{
     initBingo();
     initPaint();
 });
+
