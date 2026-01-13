@@ -1,4 +1,3 @@
-
 const synth = window.speechSynthesis;
 
 // --- VOICE SPEAK ---
@@ -11,6 +10,7 @@ function speak(text) {
 function stopSpeak() {
     synth.cancel();
 }
+
 
 // --- PAGE NAVIGATION ---
 function openPage(page){
@@ -168,4 +168,5 @@ document.addEventListener("DOMContentLoaded",()=>{
     initBingo();
     initPaint();
 });
+
 
