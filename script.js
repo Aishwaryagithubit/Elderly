@@ -4,7 +4,7 @@ const synth = window.speechSynthesis;
 function speak(text) {
     synth.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.7;
+    utterance.rate = 0.9;
     synth.speak(utterance);
 }
 function stopSpeak() {
