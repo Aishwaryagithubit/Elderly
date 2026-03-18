@@ -1,12 +1,13 @@
 const synth = window.speechSynthesis;
 
-// --- VOICE SPEAK ---
+// --- VOICE SPEAK Feature---
 function speak(text) {
     synth.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.9;
     synth.speak(utterance);
 }
+
 function stopSpeak() {
     synth.cancel();
 }
